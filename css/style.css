@@ -1,0 +1,146 @@
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+html {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    padding: 100px 1.5%;
+    background: linear-gradient(45deg,#382970,#32378f);
+    background-attachment: fixed;
+    color:#fff;
+}
+button,
+.add{
+    background: hsla(250, 64%, 8%, 0.6);
+    border:none;
+    color:#fff;
+    padding:10px;
+    cursor:pointer;
+    outline: none;
+    margin: auto;
+    width: 190px;
+    max-width: 100%;
+    border-radius: 7px;
+}
+header{
+    position:fixed;
+    top:0;
+    left: 0px;
+    background: rgb(42, 39, 103);
+    box-shadow: 0 0 20px 0 #000;
+    width:100%;
+    height:80px;
+    z-index: 10;
+}
+header button{
+    background:none;
+    font-size: 21px;
+    padding: 28px;
+}
+header button:hover,
+.current{
+    font-size:30px;
+    line-height: 18px;
+}
+
+.group{
+    display: flex;
+    float: left;
+    flex-direction: column;
+    width: 12vw;
+    height: 24vw;
+}
+.cart{
+    float:right;
+    width: 80px;
+    height: 80px;
+    padding: 25px;
+    background: #181943;
+    position: relative;
+}
+.block{
+    background: hsla(0, 0%, 0%, 0.2);
+    padding: 5px;
+    border-radius:10px;
+    margin: 0.5vw;
+    float: left;
+    position: relative;
+    opacity: 0;
+}
+.block img{
+    width:100%;
+    opacity: 0.6;
+    padding: 25px;
+}
+.big{
+    width: 23vw;
+    height: 23vw;
+}
+.small{
+    width: 11vw;
+    height: 11vw;
+}
+.long{
+    width: 11vw;
+    height: 23vw;
+}
+.cart-count{
+    background: #fff;
+    color: #192b2e;
+    border: 4px solid #191a44;
+    padding: 3px;
+    min-width: 30px;
+    min-height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.meta{
+    position:absolute;
+    bottom: 10px;
+    width: calc(100% - 10px);
+}
+.price{
+    float:left;
+    margin-right: 10px;
+}
+.meta h3{
+    margin:5px;
+    text-shadow: 0 0 5px #000;
+}
+.flex{
+    display: flex;
+    width: 100%;
+}
+.cart img{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 42px;
+}
+.add-text{
+    position: fixed;
+    bottom: 40vh;
+    text-align: center;
+    text-shadow: 0 0 27px #000;
+    font-size: 0px;
+    width: 100%;
+    left: 0px;
+    z-index: 99;
+    cursor: pointer;
+}
+.nothave{
+    background: rgba(210, 23, 8, 0.6);
+}
+.delete{
+    background: hsla(128, 63%, 34%, 0.6);
+}
