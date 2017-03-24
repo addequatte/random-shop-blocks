@@ -102,7 +102,7 @@ function drowBlocks(a,b,target) {
 			item = parseInt(Math.random()*(a + b));
 			size = parseInt(Math.random()*2) == 0 ? 'small' : 'big';
 		}
-    if(width == 7)
+    if(width == 5)
         size = 'small';
     if(size == 'big')
         width +=2;
@@ -119,14 +119,14 @@ function drowBlocks(a,b,target) {
             $('#content').append(market[item]);
             $('.block').last().addClass(size);
 		}
-    if(width > 7)
+    if(width > 5)
         width = 0;
 }
 function initDrow() {
     for(i=0;i<60;i++){
         drowBlocks(a,b,target);
         if(i == 59 && width != 0){
-            for(n = width+1;n < 9 ;n++)
+            for(n = width+1;n < 7 ;n++)
             {
                 drowBlocks(a,b,target);
                 if(size == 'big')
