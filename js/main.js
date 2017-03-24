@@ -108,6 +108,8 @@ function drowBlocks(a,b,target) {
         width +=2;
     else
         width +=1;
+    if(width == 0)
+        $('#content').append('<div class="content-row"></div>');
     if(size == 'small')
     {
         $('#content').append('<div class="group">'+market[item]+market[item]+'</div>');
