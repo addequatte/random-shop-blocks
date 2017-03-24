@@ -40,7 +40,8 @@ header{
 header button{
     background:none;
     font-size: 21px;
-    padding: 26px;
+    padding: 26px 0;
+    width: 13%;
 }
 header button:hover,
 .current{
@@ -81,6 +82,7 @@ header button:hover,
     opacity: 0.3;
     padding: 25px;
     display: block;
+    /* filter: blur(10px); */
 }
 .big{
     width: 30vw;
@@ -151,17 +153,17 @@ header button:hover,
     background: rgba(122, 181, 93, 0.8);
 }
 .green{
-    background: linear-gradient(45deg, rgba(5, 122, 84, 0.5),rgba(134, 210, 36, 0.5));
+    background: linear-gradient(45deg, #329575,#aee567);
 }
 .red{
-    background: linear-gradient(45deg, rgba(167, 3, 3, 0.6),rgba(210, 101, 83, 0.5));
+    background: linear-gradient(45deg, #ad2b2b,#e79486);
 }
 .yellow{
-    background: linear-gradient(45deg, rgba(182, 87, 20, 0.5),rgba(231, 227, 35, 0.5));
+    background: linear-gradient(45deg, #ce783c,#ddda70);
 }
 .blue{
-    background: linear-gradient(45deg, rgba(17, 9, 128, 0.5),rgba(65, 163, 198, 0.5));
+    background: linear-gradient(45deg, #3a3395,#67b9d6);
 }
 .purple{
-    background: linear-gradient(45deg, rgba(209, 7, 142, 0.5),rgba(67, 35, 231, 0.5));
+    background: linear-gradient(45deg, #d23fa2,#8470e7);
 }
