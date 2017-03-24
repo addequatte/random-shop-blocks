@@ -9,7 +9,8 @@ var width = 0;
         'red',
         'yellow',
         'blue',
-        'purple'
+        'purple',
+        'silver'
         ];
 var market = [
     '<div class="block jacket" data-target="jacket">'+
@@ -149,9 +150,9 @@ function drowBlocks(a,b,target) {
         width = 0;
 }
 function initDrow() {
-    for(i=0;i<50;i++){
+    for(i=0;i<500;i++){
         drowBlocks(a,b,target);
-        if(i == 49 && width != 0){
+        if(i == 499 && width != 0){
             for(n = width+1;n < 7 ;n++)
             {
                 drowBlocks(a,b,target);
@@ -165,7 +166,7 @@ function initDrow() {
         $(this).attr('data-id',id);
         $(this).prepend('<img src="images/'+$(this).attr('data-target')+'('+parseInt(Math.random()*10 + 1)+').svg"/>');
         $(this).children('.meta h3').html($(this).attr('data-target')+' № '+id);
-        $(this).addClass(color[parseInt(Math.random()*5)]) ;
+        $(this).addClass(color[parseInt(Math.random()*6)]) ;
     });
     $('.price').not('#busket .price').each(function () {
         var price = parseInt(Math.random()*5000 + 500);

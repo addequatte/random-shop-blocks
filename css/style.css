@@ -170,6 +170,9 @@ header button:hover,
 .purple{
     background: linear-gradient(45deg, #d23fa2,#8470e7);
 }
+.silver{
+    background: linear-gradient(45deg, #2f252b,#aaa8cf);
+}
 #busket{
     position: fixed;
     top: 80px;
