@@ -1,5 +1,5 @@
-var a = 2;
-var b = 3;
+var a = 0;
+var b = 6;
 var target = false;
 var item = 0;
 var size;
@@ -8,7 +8,8 @@ var width = 0;
         'green',
         'red',
         'yellow',
-        'blue'
+        'blue',
+        'purple'
         ];
 var market = [
     '<div class="block jacket" data-target="jacket">'+
@@ -45,6 +46,13 @@ var market = [
     '<div class="flex">'+
     '<button class="add"><b class="price"></b>Добавить</button></div>'+
     '</div>'+
+    '</div>',
+    '<div class="block hat" data-target="hat">'+
+    '<div class="meta">'+
+    '<h3 class="item-name" data-target="Шляпа">Шляпа</h3>'+
+    '<div class="flex">'+
+    '<button class="add"><b class="price"></b>Добавить</button></div>'+
+    '</div>'+
     '</div>'];
 $(function () {
 	initDrow();
@@ -68,7 +76,7 @@ $(function () {
 			b = 0;
 			a = t;
 			target = true;
-			if(t == 'all'){a = 3; b = 2; target = false}
+			if(t == 'all'){a = 0; b = 6; target = false}
 			initDrow();
 		},800,t);
 	});
@@ -113,8 +121,8 @@ function drowBlocks(a,b,target) {
     if(size == 'small')
     {
         $('#content').append('<div class="group">'+market[item]+market[item]+'</div>');
-        $('.block').last().addClass(size);
-        $('.block').last().prev().addClass(size);
+        $('.block').last().addClass(size).css('margin-bottom',0);
+        $('.block').last().prev().addClass(size).css('margin-top',0);
 	}
     else
     	{
@@ -156,6 +164,6 @@ function initDrow() {
        }
     });
     $('.block').each(function () {
-       $(this).addClass(color[parseInt(Math.random()*4)]) ;
+       $(this).addClass(color[parseInt(Math.random()*5)]) ;
     });
 }

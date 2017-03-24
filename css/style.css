@@ -51,8 +51,11 @@ header button:hover,
 .group{
     display: flex;
     float: left;
+    justify-content: space-around;
     flex-direction: column;
-    width: 16vw;
+    width: 14vw;
+    height: 30vw;
+    margin: 1vw;
 }
 .cart{
     float:right;
@@ -81,10 +84,12 @@ header button:hover,
 }
 .big{
     width: 30vw;
+    height: 30vw;
 }
 .small{
     width: 14vw;
     height: 14vw;
+    margin: auto;
 }
 .long{
     width: 11vw;
@@ -149,11 +154,14 @@ header button:hover,
     background: linear-gradient(45deg, rgba(5, 122, 84, 0.5),rgba(134, 210, 36, 0.5));
 }
 .red{
-    background: linear-gradient(45deg, rgba(167, 26, 3, 0.6),rgba(194, 95, 38, 0.5));
+    background: linear-gradient(45deg, rgba(167, 3, 3, 0.6),rgba(210, 101, 83, 0.5));
 }
 .yellow{
     background: linear-gradient(45deg, rgba(182, 87, 20, 0.5),rgba(231, 227, 35, 0.5));
 }
 .blue{
     background: linear-gradient(45deg, rgba(17, 9, 128, 0.5),rgba(65, 163, 198, 0.5));
+}
+.purple{
+    background: linear-gradient(45deg, rgba(209, 7, 142, 0.5),rgba(67, 35, 231, 0.5));
 }
