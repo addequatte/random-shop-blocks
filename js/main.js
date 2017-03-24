@@ -4,6 +4,12 @@ var target = false;
 var item = 0;
 var size;
 var width = 0;
+ var color = [
+        'green',
+        'red',
+        'yellow',
+        'blue'
+        ];
 var market = [
     '<div class="block jacket" data-target="jacket">'+
     '<div class="meta">'+
@@ -45,6 +51,14 @@ $(function () {
 	$('header button').on('click',function () {
         $('header button').not(this).removeClass('current');
 		$(this).addClass('current');
+	  if (navigator.userAgent.search(/Firefox/) > 0)
+		$('html').animate({
+		  'scrollTop': 0
+		}, 800);
+	  else
+		$('html body').animate({
+		  'scrollTop': 0
+		}, 800);
 		$('html body').animate({'scrollTop': 0},800);
 		var t = $(this).attr('data-target');
 		$('.block').fadeOut(800);
@@ -109,9 +123,9 @@ function drowBlocks(a,b,target) {
         width = 0;
 }
 function initDrow() {
-    for(i=0;i<30;i++){
+    for(i=0;i<60;i++){
         drowBlocks(a,b,target);
-        if(i == 29 && width != 0){
+        if(i == 59 && width != 0){
             for(n = width+1;n < 9 ;n++)
             {
                 drowBlocks(a,b,target);
@@ -138,5 +152,8 @@ function initDrow() {
            $(this).removeClass('add').addClass('nothave');
            $(this).html('<b class="price">'+$(this).children().html()+'</b>Закончился');
        }
+    });
+    $('.block').each(function () {
+       $(this).addClass(color[parseInt(Math.random()*4)]) ;
     });
 }
