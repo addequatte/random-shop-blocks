@@ -15,17 +15,29 @@ body{
     background-attachment: fixed;
     color:#fff;
 }
-button,
-.add{
-    background: rgba(208, 208, 208, 0.9);
+button{
     border:none;
     color: #2d2f2b;
     padding:10px;
     cursor:pointer;
     outline: none;
     margin: auto;
-    width: 190px;
+    width: calc(100% - 20px);
     max-width: 100%;
+    border-radius: 7px;
+    font-size: 0.8vw;
+}
+.block button{
+    position:absolute;
+    bottom: 0.5vw;
+    left: calc(50% - 6.5vw);
+    border:none;
+    color: #2d2f2b;
+    padding:10px;
+    cursor:pointer;
+    outline: none;
+    margin: auto;
+    width: 13vw;
     border-radius: 7px;
     font-size: 0.8vw;
 }
@@ -78,7 +90,7 @@ header button:hover,
 }
 .block{
     background: hsla(0, 0%, 0%, 0.2);
-    padding: 5px;
+    padding: 0.5vw;
     border-radius:10px;
     margin: 1vw;
     float: left;
@@ -120,18 +132,15 @@ header button:hover,
     top: 10px;
     right: 10px;
 }
-.meta{
-    position:absolute;
-    bottom: 5px;
-    width: calc(100% - 10px);
-}
 .price{
     float:left;
     margin-right: 10px;
 }
-.meta h3{
-    margin:5px;
-    text-shadow: 0 0 5px #000;
+.block h3{
+    margin:0;
+    position:absolute;
+    top:10px;
+    left:10px;
 }
 .flex{
     display: flex;
@@ -153,6 +162,9 @@ header button:hover,
     left: 0px;
     z-index: 99;
     cursor: pointer;
+}
+.add{
+    background:rgba(208, 208, 208, 0.9);
 }
 .nothave{
     background: rgba(216, 88, 88, 0.8);
@@ -191,4 +203,18 @@ header button:hover,
     z-index: 99;
     background: linear-gradient(45deg,rgba(245, 245, 245, 0.95),rgba(220, 220, 220, 0.95));
     box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.cover-back{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: #000;
+    opacity: 0;
+}
+.over{
+    z-index: 9;
+    opacity: 0.9;
 }

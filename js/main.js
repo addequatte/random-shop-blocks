@@ -14,47 +14,23 @@ var width = 0;
         ];
 var market = [
     '<div class="block jacket" data-target="jacket">'+
-    '<div class="meta">'+
     '<h3 class="item-name" data-target="Куртка">Куртка</h3>'+
-    '<div class="flex">'+
-    '<button class="add"><b class="price"></b>Добавить</button></div>'+
-    '</div>'+
-    '</div>',
+    '<button class="add"><b class="price"></b>Добавить</button></div>',
     '<div class="block tshirt" data-target="tshirt">'+
-	'<div class="meta">'+
     '<h3 class="item-name" data-target="Футболка">Футболка</h3>'+
-    '<div class="flex">'+
-    '<button class="add"><b class="price"></b>Добавить</button></div>'+
-    '</div>'+
-    '</div>',
+    '<button class="add"><b class="price"></b>Добавить</button></div>',
     '<div class="block shoes" data-target="shoes">'+
-    '<div class="meta">'+
     '<h3 class="item-name" data-target="Ботинки">Ботинки</h3>'+
-    '<div class="flex">'+
-    '<button class="add"><b class="price"></b>Добавить</button></div>'+
-    '</div>'+
-    '</div>',
+    '<button class="add"><b class="price"></b>Добавить</button></div>',
     '<div class="block dress" data-target="dress">'+
-    '<div class="meta">'+
     '<h3 class="item-name" data-target="Платье">Платье</h3>'+
-    '<div class="flex">'+
-    '<button class="add"><b class="price"></b>Добавить</button></div>'+
-    '</div>'+
-    '</div>',
+    '<button class="add"><b class="price"></b>Добавить</button></div>',
     '<div class="block trousers" data-target="trousers">'+
-    '<div class="meta">'+
     '<h3 class="item-name" data-target="Штаны">Штаны</h3>'+
-    '<div class="flex">'+
-    '<button class="add"><b class="price"></b>Добавить</button></div>'+
-    '</div>'+
-    '</div>',
+    '<button class="add"><b class="price"></b>Добавить</button></div>',
     '<div class="block hat" data-target="hat">'+
-    '<div class="meta">'+
     '<h3 class="item-name" data-target="Шляпа">Шляпа</h3>'+
-    '<div class="flex">'+
-    '<button class="add"><b class="price"></b>Добавить</button></div>'+
-    '</div>'+
-    '</div>'];
+    '<button class="add"><b class="price"></b>Добавить</button></div>'];
 $(function () {
 	initDrow();
 	$('header button').on('click',function () {
@@ -83,37 +59,38 @@ $(function () {
 	});
 	$(document).on('click','.block .add',function () {
 		$('.cart-count').html(parseInt($('.cart-count').html()) + 1);
-		$(this).parent().parent().prev().css('filter','blur(30px)');
+		$(this).prev().prev().css('filter','blur(30px)');
         $(this).removeClass('add').addClass('delete');
 		$(this).html('<b class="price">'+$(this).children().html()+'</b>Убрать');
 		$('body').append('<div class="add-text">Товар Добавлен</div>');
 		$('.add-text').animate({'fontSize':'250px','opacity':'0'},500,function () {
 			$(this).remove();
         });
-		$(this).parent().parent().parent().clone().appendTo($('#busket .line-row'));
+		$(this).parent().clone().appendTo($('#busket .line-row'));
         $('#busket .block').css({'margin':'1vw','margin-top':'1vw','margin-bottom':'1vw'}).removeClass('big').addClass('small');
         $('#busket .block img').css('filter','blur(0px)');
 		$('.cart b').html(parseInt($('.cart b').html()) + parseInt($(this).attr('data-price')));
 		$(this).remove();
     });
     $(document).on('click','.block .delete',function () {
-        var id = $(this).parent().parent().parent().attr('data-id');
+        var id = $(this).parent().attr('data-id');
         var price = $(this).attr('data-price');
         $('.cart-count').html(parseInt($('.cart-count').html()) - 1);
-        $(this).parent().parent().parent().remove();
         $(this).removeClass('delete').addClass('add');
+        $(this).parent().remove();
         $(this).html('<b class="price">'+$(this).children().html()+'</b>Добавить');
         $('body').append('<div class="add-text">Товар Убран</div>');
         $('.add-text').animate({'fontSize':'250px','opacity':'0'},500,function () {
             $(this).remove();
         });
         $('.cart b').html(parseInt($('.cart b').html()) - parseInt($(this).attr('data-price')));
-        $('.block[data-id="'+id+'"] .meta .flex').html('<button class="add" data-price="'+price+'"><b class="price">'+price+' Pуб.</b>Добавить</button>');
+        $('.block[data-id="'+id+'"]').append('<button class="add" data-price="'+price+'"><b class="price">'+price+' Pуб.</b>Добавить</button>');
         $('.block[data-id="'+id+'"] img').css('filter','blur(0px)');
 
     });
     $('.cart').on('click',function () {
        $('#busket').slideToggle(500);
+       $('.cover-back').toggleClass('over')
     });
 });
 function drowBlocks(a,b,target) {
@@ -150,9 +127,9 @@ function drowBlocks(a,b,target) {
         width = 0;
 }
 function initDrow() {
-    for(i=0;i<500;i++){
+    for(i=0;i<50;i++){
         drowBlocks(a,b,target);
-        if(i == 499 && width != 0){
+        if(i == 49 && width != 0){
             for(n = width+1;n < 7 ;n++)
             {
                 drowBlocks(a,b,target);
@@ -165,7 +142,7 @@ function initDrow() {
         var id = parseInt(Math.random()*99999 + 10000);
         $(this).attr('data-id',id);
         $(this).prepend('<img src="images/'+$(this).attr('data-target')+'('+parseInt(Math.random()*10 + 1)+').svg"/>');
-        $(this).children('.meta h3').html($(this).attr('data-target')+' № '+id);
+        $(this).children('h3').html($(this).children('h3').attr('data-target')+' № '+id);
         $(this).addClass(color[parseInt(Math.random()*6)]) ;
     });
     $('.price').not('#busket .price').each(function () {
@@ -173,7 +150,7 @@ function initDrow() {
         $(this).html(price+' Pуб.');
         $(this).parent().attr('data-price',price);
     });
-    $('.meta h3').not('#busket .meta h3').each(function () {
+    $('.block h3').not('#busket .block h3').each(function () {
         $(this).html($(this).attr('data-target')+' № '+parseInt(Math.random()*99999 + 10000))
     });
     setTimeout(function(){$('.block').fadeTo(800,1)},200);
